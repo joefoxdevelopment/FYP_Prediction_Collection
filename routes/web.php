@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PredictionController@index')->name('index');
+Route::get('/thanks', 'PredictionController@predictionConfirm')->name('thanks');
+
+Route::post('/', 'PredictionController@makePredictions')->name('submit-predictions');
