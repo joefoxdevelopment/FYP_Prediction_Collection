@@ -12,16 +12,29 @@
         <form class="prediction-form" method="POST">
             {{ csrf_field() }}
             {# iterate through the matches to predict #}
-            <div name="prediction[]" class="match-container">
+            {# use loop index to represent array indices #}
+            <div name="prediction" class="match-container">
                 <div class="team team-left">
                     <p>Home Team</p>
-                    <input name="hometeam" type="hidden" value="home team" />
-                    <input name="homegoals" type="number" value="0" min="0" />
+                    <input name="hometeam[0]" type="hidden" value="home team" />
+                    <input name="homegoals[0]" type="number" value="0" min="0" />
                 </div>
                 <div class="team team-right">
                     <p>Away Team</p>
-                    <input name="awayteam" type="hidden" value="away team" />
-                    <input name="awaygoals" type="number" value="0" min="0" />
+                    <input name="awayteam[0]" type="hidden" value="away team" />
+                    <input name="awaygoals[0]" type="number" value="0" min="0" />
+                </div>
+            </div>
+            <div name="prediction" class="match-container">
+                <div class="team team-left">
+                    <p>Home Team</p>
+                    <input name="hometeam[1]" type="hidden" value="home team" />
+                    <input name="homegoals[1]" type="number" value="0" min="0" />
+                </div>
+                <div class="team team-right">
+                    <p>Away Team</p>
+                    <input name="awayteam[1]" type="hidden" value="away team" />
+                    <input name="awaygoals[1]" type="number" value="0" min="0" />
                 </div>
             </div>
             <input type="submit" value="Submit" />
