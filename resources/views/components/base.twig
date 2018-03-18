@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        {% include 'components/head' %}
+    </head>
+    <body>
+        {% include 'components/nav' %}
+
+        <div class="content">
+            {% block content %}
+                {# Page content will go here #}
+            {% endblock %}
+        </div>
+
+        <div id="footer" class="footer"></div>
+    </body>
+    {% include 'components/scripts' %}
+</html>
