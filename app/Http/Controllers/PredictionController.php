@@ -13,6 +13,9 @@ class PredictionController extends Controller
 
     //Route submit-predictions
     public function makePredictions() {
+        //Process and store predictions
+        //Validation is key
+
         return redirect()->route('thanks');
     }
 

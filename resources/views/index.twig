@@ -1,4 +1,30 @@
 {% extends "components/base" %}
 
 {% block content %}
+    <div class="help-container">
+       <ul>
+            <li>Enter your predictions for the matches below</li>
+            <li>Your predictions will be used to improve a predictive system,
+                along with being compared for accuracy</li>
+       </ul>
+    </div>
+    <div class="prediction-container">
+        <form class="prediction-form" method="POST">
+            {{ csrf_field() }}
+            {# iterate through the matches to predict #}
+            <div name="prediction[]" class="match-container">
+                <div class="team team-left">
+                    <p>Home Team</p>
+                    <input name="hometeam" type="hidden" value="home team" />
+                    <input name="homegoals" type="number" value="0" min="0" />
+                </div>
+                <div class="team team-right">
+                    <p>Away Team</p>
+                    <input name="awayteam" type="hidden" value="away team" />
+                    <input name="awaygoals" type="number" value="0" min="0" />
+                </div>
+            </div>
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
 {% endblock %}
