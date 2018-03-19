@@ -44,6 +44,8 @@ class PredictableMatches extends Command
 
         $handle = fopen($this->filepath, 'r');
 
+        fgetcsv($handle, 1000, ','); //Skip header row
+
         while (($data = fgetcsv($handle, 1000, ',')) !== false) {
             $match = new PredictableMatch();
             $match->hometeam = $data[0];

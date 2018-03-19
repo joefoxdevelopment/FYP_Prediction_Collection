@@ -19,16 +19,18 @@
                         <div class="team team-left">
                             <p>{{ match.hometeam }}</p>
                             <input name="hometeam[{{ loop.index }}]" type="hidden" value="{{ match.hometeam }}" />
-                            <input name="homegoals[{{ loop.index }}]" type="number" value="0" min="0" />
+                            <input name="homegoals[{{ loop.index }}]" type="number" value="0" min="0" max="15" />
                         </div>
                         <div class="team team-right">
                             <p>{{ match.awayteam }}</p>
                             <input name="awayteam[{{ loop.index }}]" type="hidden" value="{{ match.awayteam }}" />
-                            <input name="awaygoals[{{ loop.index }}]" type="number" value="0" min="0" />
+                            <input name="awaygoals[{{ loop.index }}]" type="number" value="0" min="0" max="15" />
                         </div>
                     </div>
                 {% endfor %}
-                <input type="submit" value="Submit" />
+                <div class="submit-container">
+                    <input type="submit" value="Submit" />
+                </div>
             </form>
         {% else %}
             <h5>There are currently no matches to predict.</h5>
