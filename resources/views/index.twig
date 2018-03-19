@@ -3,31 +3,35 @@
 {% block content %}
     <div class="help-container">
        <ul>
-            <li>Enter your predictions for the matches below</li>
+            <li>Enter your predictions for the matches below.</li>
             <li>Your predictions will be used to improve a predictive system,
-                along with being compared for accuracy</li>
+                along with being compared for accuracy.</li>
        </ul>
     </div>
     <div class="prediction-container">
-        <form class="prediction-form" method="POST">
-            {{ csrf_field() }}
-            {# iterate through the matches to predict #}
-            {# use loop index to represent array indices #}
-            {% for match in matches %}
-                <div name="prediction" class="match-container">
-                    <div class="team team-left">
-                        <p>{{ match.homeTeam }}</p>
-                        <input name="hometeam[{{ loop.index }}]" type="hidden" value="{{ match.homeTeam }}" />
-                        <input name="homegoals[{{ loop.index }}]" type="number" value="0" min="0" />
+        {% if matches is defined and not matches is empty %}
+            <form class="prediction-form" method="POST">
+                {{ csrf_field() }}
+                {# iterate through the matches to predict #}
+                {# use loop index to represent array indices #}
+                {% for match in matches %}
+                    <div name="prediction" class="match-container">
+                        <div class="team team-left">
+                            <p>{{ match.homeTeam }}</p>
+                            <input name="hometeam[{{ loop.index }}]" type="hidden" value="{{ match.homeTeam }}" />
+                            <input name="homegoals[{{ loop.index }}]" type="number" value="0" min="0" />
+                        </div>
+                        <div class="team team-right">
+                            <p>{{ match.awayTeam }}</p>
+                            <input name="awayteam[{{ loop.index }}]" type="hidden" value="{{ match.awayTeam }}" />
+                            <input name="awaygoals[{{ loop.index }}]" type="number" value="0" min="0" />
+                        </div>
                     </div>
-                    <div class="team team-right">
-                        <p>{{ match.awayTeam }}</p>
-                        <input name="awayteam[{{ loop.index }}]" type="hidden" value="{{ match.awayTeam }}" />
-                        <input name="awaygoals[{{ loop.index }}]" type="number" value="0" min="0" />
-                    </div>
-                </div>
-            {% endfor %}
-            <input type="submit" value="Submit" />
-        </form>
+                {% endfor %}
+                <input type="submit" value="Submit" />
+            </form>
+        {% else %}
+            <h5>There are currently no matches to predict.</h5>
+        {% endif %}
     </div>
 {% endblock %}
