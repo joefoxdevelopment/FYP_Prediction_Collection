@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\PredictableMatch;
 use Illuminate\Http\Request;
 
 class PredictionController extends Controller
@@ -29,7 +30,7 @@ class PredictionController extends Controller
         return view('thanks', []);
     }
 
-    private function getMatchesToPredict(): array {
-        return [];
+    private function getMatchesToPredict() {
+        return PredictableMatch::all();
     }
 }

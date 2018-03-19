@@ -17,13 +17,13 @@
                 {% for match in matches %}
                     <div name="prediction" class="match-container">
                         <div class="team team-left">
-                            <p>{{ match.homeTeam }}</p>
-                            <input name="hometeam[{{ loop.index }}]" type="hidden" value="{{ match.homeTeam }}" />
+                            <p>{{ match.hometeam }}</p>
+                            <input name="hometeam[{{ loop.index }}]" type="hidden" value="{{ match.hometeam }}" />
                             <input name="homegoals[{{ loop.index }}]" type="number" value="0" min="0" />
                         </div>
                         <div class="team team-right">
-                            <p>{{ match.awayTeam }}</p>
-                            <input name="awayteam[{{ loop.index }}]" type="hidden" value="{{ match.awayTeam }}" />
+                            <p>{{ match.awayteam }}</p>
+                            <input name="awayteam[{{ loop.index }}]" type="hidden" value="{{ match.awayteam }}" />
                             <input name="awaygoals[{{ loop.index }}]" type="number" value="0" min="0" />
                         </div>
                     </div>

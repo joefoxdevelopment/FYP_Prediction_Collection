@@ -19,6 +19,7 @@ class CreateMatchDatasTable extends Migration
             $table->string('awayteam');
             $table->string('homegoals');
             $table->string('awaygoals');
+            $table->string('source');
             $table->timestamps();
         });
     }
