@@ -13,30 +13,20 @@
             {{ csrf_field() }}
             {# iterate through the matches to predict #}
             {# use loop index to represent array indices #}
-            <div name="prediction" class="match-container">
-                <div class="team team-left">
-                    <p>Home Team</p>
-                    <input name="hometeam[0]" type="hidden" value="home team" />
-                    <input name="homegoals[0]" type="number" value="0" min="0" />
+            {% for match in matches %}
+                <div name="prediction" class="match-container">
+                    <div class="team team-left">
+                        <p>{{ match.homeTeam }}</p>
+                        <input name="hometeam[{{ loop.index }}]" type="hidden" value="{{ match.homeTeam }}" />
+                        <input name="homegoals[{{ loop.index }}]" type="number" value="0" min="0" />
+                    </div>
+                    <div class="team team-right">
+                        <p>{{ match.awayTeam }}</p>
+                        <input name="awayteam[{{ loop.index }}]" type="hidden" value="{{ match.awayTeam }}" />
+                        <input name="awaygoals[{{ loop.index }}]" type="number" value="0" min="0" />
+                    </div>
                 </div>
-                <div class="team team-right">
-                    <p>Away Team</p>
-                    <input name="awayteam[0]" type="hidden" value="away team" />
-                    <input name="awaygoals[0]" type="number" value="0" min="0" />
-                </div>
-            </div>
-            <div name="prediction" class="match-container">
-                <div class="team team-left">
-                    <p>Home Team</p>
-                    <input name="hometeam[1]" type="hidden" value="home team" />
-                    <input name="homegoals[1]" type="number" value="0" min="0" />
-                </div>
-                <div class="team team-right">
-                    <p>Away Team</p>
-                    <input name="awayteam[1]" type="hidden" value="away team" />
-                    <input name="awaygoals[1]" type="number" value="0" min="0" />
-                </div>
-            </div>
+            {% endfor %}
             <input type="submit" value="Submit" />
         </form>
     </div>

@@ -8,7 +8,12 @@ class PredictionController extends Controller
 {
     //Route index
     public function index() {
-        return view('index', []);
+        return view(
+            'index',
+            [
+                'matches' => $this->getMatchesToPredict(),
+            ]
+        );
     }
 
     //Route submit-predictions
@@ -22,5 +27,9 @@ class PredictionController extends Controller
     //Route thanks
     public function predictionConfirm() {
         return view('thanks', []);
+    }
+
+    private function getMatchesToPredict(): array {
+        return [];
     }
 }
