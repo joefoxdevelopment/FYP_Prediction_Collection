@@ -15,6 +15,10 @@ class CreateMatchDatasTable extends Migration
     {
         Schema::create('match_datas', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('hometeam');
+            $table->string('awayteam');
+            $table->string('homegoals');
+            $table->string('awaygoals');
             $table->timestamps();
         });
     }

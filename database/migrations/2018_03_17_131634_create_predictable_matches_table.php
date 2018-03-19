@@ -15,6 +15,8 @@ class CreatePredictableMatchesTable extends Migration
     {
         Schema::create('predictable_matches', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('hometeam');
+            $table->string('awayteam');
             $table->timestamps();
         });
     }

@@ -2,4 +2,4 @@
 ## Joe Fox
 
 ### Match Data Source
-Historic football match data came from football-data.co.uk
+Historic football match data from football-data.co.uk
