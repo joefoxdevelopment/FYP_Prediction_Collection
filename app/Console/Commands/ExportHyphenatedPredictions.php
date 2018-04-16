@@ -52,7 +52,7 @@ class ExportHyphenatedPredictions extends Command
             'awaygoals'
         );
 
-        $fileHandle = fopen('export/exportedPredictions.csv', 'w');
+        $fileHandle = fopen('export/exportedHyphenatedPredictions.csv', 'w');
 
         fputcsv($fileHandle, $titles);
 

@@ -52,7 +52,7 @@ class ExportUserPredictions extends Command
             'awaygoals'
         );
 
-        $fileHandle = fopen('exportedPredictions.csv', 'w');
+        $fileHandle = fopen('export/exportedPredictions.csv', 'w');
 
         fputcsv($fileHandle, $titles);
 
