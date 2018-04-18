@@ -12,7 +12,7 @@ class PredictableMatches extends Command
      *
      * @var string
      */
-    protected $signature = 'match:addpredictable';
+    protected $signature = 'match:add-predictable';
 
     /**
      * The console command description.
