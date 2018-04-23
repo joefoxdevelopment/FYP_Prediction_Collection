@@ -25,14 +25,6 @@ class PredictionController extends Controller
         $homegoals = $request->homegoals;
         $awaygoals = $request->awaygoals;
 
-        if (
-            count($hometeams) != count($awayteams) ||
-            count($homegoals) != count($awaygoals) ||
-            count($hometeams) != count($homegoals)
-        ) {
-            //return redirect()->route('error');
-        }
-
         for ($i = 1; $i <= count($hometeams); $i++) {
 
             $match = new MatchData();
